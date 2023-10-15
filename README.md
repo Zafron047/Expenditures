@@ -1,2 +1,24 @@
-# Expenditures
-This Ruby on Rails project is about building a mobile web application where user can manage budget: user have a list of transactions associated with a category, so that user can see how much money they have spent and on what.
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
