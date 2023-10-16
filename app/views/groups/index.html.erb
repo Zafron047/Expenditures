@@ -1,0 +1,14 @@
+<h1>This is Groups Index page</h1>
+
+<% if @groups.empty? %>
+  <p>No groups yet</p>
+<% else %>
+  <table>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.icon %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
