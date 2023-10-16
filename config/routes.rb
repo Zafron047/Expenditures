@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, path: 'users',
+  path_names: { sign_in: 'sign_in', sign_out: 'sign_out', password: 'secret', registration: 'register', sign_up: 'sign_up' }
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  # get "up" => "rails/health#show", as: :rails_health_check
-
-  resources :groups, only: [:index, :show, :new, :create]
-  root "groups#index"
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
+    root to: 'groups#index'
+  end
+  
+  resources :users
+  resources :groups, only: [:index, :new, :create]
+  resources :expenses, only: [:index, :new, :create]
 end
