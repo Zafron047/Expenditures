@@ -1,0 +1,20 @@
+<%= form_for @group do |f| %> 
+  <%= f.text_field :name %>
+  <%= f.select :icon, options_for_select(
+    [
+      ['Select an icon', ''],
+      ['Rent', 'bi-house-fill'],
+      ['Transport', 'bi-bus-front'],
+      ['Tour', 'bi-luggage'],
+      ['Shopping', 'bi-bag-fill'],
+      ['Grocery', 'bi-cart-check-fill'],
+      ['Dining', 'bi-cup'],
+      ['Entertainment', 'bi-emoji-laughing'],
+      ['Health', 'bi-heart'],
+      ['Education', 'bi-pencil'],
+      ['Utilities', 'bi-lightning'],
+      ['Gifts', 'bi-gift'],
+      ['Savings', 'bi-coin']
+    ]) %>
+  <%= f.submit "Add Group" %>
+<% end %>

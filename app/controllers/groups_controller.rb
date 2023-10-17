@@ -11,7 +11,8 @@ class GroupsController < ApplicationController
 
   def create
     @group = current_user.groups.build(group_params)
-    if @group.save
+
+  if @group.save
       redirect_to groups_path, notice: "Great, group created successfully"
     else
       render :new, notice: "Error: Group not created"
@@ -21,6 +22,6 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name, :icon)
+    params.require(:group).permit(:name, :icon, user_id: current_user.id)
   end
 end

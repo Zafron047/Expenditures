@@ -1,14 +1,9 @@
 <h1>This is Groups Index page</h1>
-
-<% if @groups.empty? %>
-  <p>No groups yet</p>
-<% else %>
-  <table>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td><%= group.icon %></td>
-      </tr>
-    <% end %>
-  </table>
-<% end %>
+<table>
+  <% @groups.each do |group| %>
+    <h4><%= link_to group.name, group_expenses_path(group), style: "text-decoration: none; color:#919294;" %></h4>
+    <%= group.name %>
+    <%= group.icon %>
+  <% end %>
+</table>
+<%= link_to "Add Group", new_group_path %>
