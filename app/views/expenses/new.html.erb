@@ -1,0 +1,11 @@
+<h1> This is new Expense form page for <%= @group.name %></h1>
+
+<%= form_with(model: [ @group, @expense], local: true) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :amount %>
+  <%= f.number_field :amount %>
+  <%= f.label :group, class: "control-label" %>
+  <%= f.collection_select :group, @groups, :name, :name, prompt: "Select a group", required: true %>
+  <%= f.submit %>
+<% end %>
