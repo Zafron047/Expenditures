@@ -1,6 +1,6 @@
 <h1 class="m-2"> Groups List </h1>
 
-<div style="background-color: #e4ecf7">
+<div style="background-color: #e4ecf7;">
   <div class="d-flex flex-row-reverse bd-highlight" style="background-color: #3778c2">
     <div class="p-3 bd-highlight" style="color: #9cb8db">Most ancient</div>
     <div class="p-3 bd-highlight" style="color: #c1d2e8">Most recent</div>
@@ -10,7 +10,7 @@
     <div class="p-2 bd-highlight">Gift credit</div>
   </div>
   <br/>
-  <div class="d-flex flex-column align-item-center" id="tran_groups">
+  <div class="d-flex flex-column align-item-center" id="tran_groups" style="min-height: 58vh;">
     <% if user_signed_in? %>
       <% @groups.sort_by{ |group| group.created_at }.reverse.each do |group| %>
         <div class="p-2 m-2 rounded border shadow-sm bg-light d-flex">
