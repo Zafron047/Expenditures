@@ -6,20 +6,20 @@ RSpec.describe Group, type: :model do
   describe 'validations' do
     it 'is valid with valid attributes' do
       user = create(:user)
-      group = build(:group, user: user)
-      
+      group = build(:group, user:)
+
       expect(group).to be_valid
     end
 
     it 'is not valid without a name' do
       user = create(:user)
-      group = build(:group, name: nil, user: user)
+      group = build(:group, name: nil, user:)
       expect(group).not_to be_valid
     end
 
     it 'is not valid without an icon' do
       user = create(:user)
-      group = build(:group, icon: nil, user: user)
+      group = build(:group, icon: nil, user:)
       expect(group).not_to be_valid
     end
   end

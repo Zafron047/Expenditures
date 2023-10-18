@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.feature "Users", type: :feature do
+RSpec.feature 'Users', type: :feature do
   before(:each) do
     DatabaseCleaner.clean
   end
-  
+
   it 'allows a user to register' do
     visit new_user_registration_path
     fill_in 'Name', with: 'New User'
@@ -14,6 +14,12 @@ RSpec.feature "Users", type: :feature do
     click_button 'Sign up'
     sleep(1)
     expect(page).to have_text('Welcome! You have signed up successfully.')
+  end
+end
+
+RSpec.feature 'Users', type: :feature do
+  before(:each) do
+    DatabaseCleaner.clean
   end
 
   it 'allows user to login' do

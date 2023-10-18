@@ -6,13 +6,13 @@ RSpec.describe Expense, type: :model do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean
   end
-  
+
   describe 'validations' do
     it 'is valid with valid attributes' do
       user = User.create(name: 'Jack Sulivan', email: 'sulivan@example.com', password: 'password123')
       group = Group.create(name: 'group 1', user:)
       expense = Expense.new(name: 'Sample Item', user:, amount: 100.0)
-      group_expense = GroupExpense.new(group:, expense:)
+      GroupExpense.new(group:, expense:)
 
       expect(expense).to be_valid
     end
@@ -21,7 +21,7 @@ RSpec.describe Expense, type: :model do
       user = User.create(name: 'Jack Sulivan', email: 'sulivan@example.com', password: 'password123')
       group = Group.create(name: 'group 1', user:)
       expense = Expense.new(name: nil, user:, amount: 100.0)
-      group_expense = GroupExpense.new(group:, expense:)
+      GroupExpense.new(group:, expense:)
 
       expect(expense).to_not be_valid
     end
@@ -30,7 +30,7 @@ RSpec.describe Expense, type: :model do
       user = User.create(name: 'Jack Sulivan', email: 'sulivan@example.com', password: 'password123')
       group = Group.create(name: 'group 1', user:)
       expense = Expense.new(name: 'Sample Item', user:, amount: nil)
-      group_expense = GroupExpense.new(group:, expense:)
+      GroupExpense.new(group:, expense:)
 
       expect(expense).to_not be_valid
     end
@@ -39,7 +39,7 @@ RSpec.describe Expense, type: :model do
       user = User.create(name: 'Jack Sulivan', email: 'sulivan@example.com', password: 'password123')
       group = Group.create(name: 'group 1', user:)
       expense = Expense.new(name: 'Sample Item', user:, amount: 'invalid_amount')
-      group_expense = GroupExpense.new(group:, expense:)
+      GroupExpense.new(group:, expense:)
 
       expect(expense).to_not be_valid
     end
@@ -48,14 +48,14 @@ RSpec.describe Expense, type: :model do
       user = User.create(name: 'Jack Sulivan', email: 'sulivan@example.com', password: 'password123')
       group = Group.create(name: 'group 1', user:)
       expense = Expense.new(name: 'Sample Item', user:, amount: -100.0)
-      group_expense = GroupExpense.new(group:, expense:)
+      GroupExpense.new(group:, expense:)
 
       expect(expense).to_not be_valid
     end
 
     it 'is not valid without an author' do
       user = User.create(name: 'Jack Sulivan', email: 'sulivan@example.com', password: 'password123')
-      group = Group.create(name: 'group 1', user:)
+      Group.create(name: 'group 1', user:)
       expense = Expense.new(name: 'Sample Item', user: nil, amount: -100.0)
 
       expect(expense).to_not be_valid

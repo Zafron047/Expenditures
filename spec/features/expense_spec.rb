@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Expenses", type: :feature do
+RSpec.feature 'Expenses', type: :feature do
   before(:each) do
     DatabaseCleaner.clean
   end
@@ -26,6 +26,22 @@ RSpec.feature "Expenses", type: :feature do
     sleep(1)
     expect(page).to have_content('Test Expense')
   end
+end
+
+RSpec.feature 'Expenses', type: :feature do
+  before(:each) do
+    DatabaseCleaner.clean
+  end
+
+  before(:each) do
+    @user = FactoryBot.create(:user)
+    @group = FactoryBot.create(:group, user: @user)
+    visit new_user_session_path
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: 'password123'
+    click_button 'Log in'
+    sleep(1)
+  end
 
   it 'allows a user to see TOTAL AMOUNT' do
     visit new_group_expense_path(@group)
@@ -45,6 +61,22 @@ RSpec.feature "Expenses", type: :feature do
     visit root_path
     sleep(1)
     expect(page).to have_content('Most recent')
+  end
+end
+
+RSpec.feature 'Contents', type: :feature do
+  before(:each) do
+    DatabaseCleaner.clean
+  end
+
+  before(:each) do
+    @user = FactoryBot.create(:user)
+    @group = FactoryBot.create(:group, user: @user)
+    visit new_user_session_path
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: 'password123'
+    click_button 'Log in'
+    sleep(1)
   end
 
   it 'allows a user to see Most ancient' do
