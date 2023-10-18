@@ -73,4 +73,4 @@ group :test do
   gem 'rspec', '~> 3.12'
 end
 
-gem 'devise', '~> 4.9'
+gem 'devise', '~> 4.9.0'
