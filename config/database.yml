@@ -85,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: expenditures_production
+  url: <%= ENV['DATABASE_URL'] %>
   # username: postgres
   # password: <%= ENV["POSTGRES_USER_PASS"] %>
