@@ -24,22 +24,21 @@ class ExpensesController < ApplicationController
     group_params = params[:expense][:group]
     name = params[:expense][:name]
     amount = params[:expense][:amount]
-    
+
     @group = Group.find_by(name: group_params)
-    @expense = current_user.expenses.build(name: name, amount: amount)
+    @expense = current_user.expenses.build(name:, amount:)
     @group.expenses << @expense
 
     if @expense.save
-      redirect_to group_expenses_path(@group), notice: "Great, expense created successfully"
+      redirect_to group_expenses_path(@group), notice: 'Great, expense created successfully'
     else
-      render :new, notice: "Error: Expense not created"
+      render :new, notice: 'Error: Expense not created'
     end
   end
-  
+
   private
 
   def expense_params
     params.require(:expense).permit(:name, :amount).merge(group: params[:expense][:group])
   end
-  
 end
