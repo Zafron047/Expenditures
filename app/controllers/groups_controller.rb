@@ -2,7 +2,11 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @groups = current_user.groups.includes(:expenses)
+    if user_signed_in?
+      @groups = current_user.groups.includes(:expenses).order(created_at: :desc)
+    else
+      @groups = []  # or you can set it to nil, an empty array, or handle it differently
+    end
   end
 
   def new

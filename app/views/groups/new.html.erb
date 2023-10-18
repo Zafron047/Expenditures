@@ -1,20 +1,45 @@
-<%= form_for @group do |f| %> 
-  <%= f.text_field :name %>
-  <%= f.select :icon, options_for_select(
-    [
+<h1 class="m-2"> Create new Group</h1>
+<%= form_with(model: @group) do |form| %>
+  <% if @group.errors.any? %>
+    <div>
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this tran_group from being saved:</h2>
+      <ul>
+        <% @group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group p-2 m-2" >
+    <%= form.label :name, class: "control-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "new groupname", style: "width: 90vw; border: 1px solid #000;" %>
+  </div>
+
+  <div class="form-group p-2 m-2">
+    <%= form.label :icon, style: "display: block; margin-bottom: 2px;" %>
+    <%= form.select :icon, options_for_select([
       ['Select an icon', ''],
-      ['Rent', 'bi-house-fill'],
-      ['Transport', 'bi-bus-front'],
-      ['Tour', 'bi-luggage'],
-      ['Shopping', 'bi-bag-fill'],
-      ['Grocery', 'bi-cart-check-fill'],
-      ['Dining', 'bi-cup'],
-      ['Entertainment', 'bi-emoji-laughing'],
-      ['Health', 'bi-heart'],
-      ['Education', 'bi-pencil'],
-      ['Utilities', 'bi-lightning'],
-      ['Gifts', 'bi-gift'],
-      ['Savings', 'bi-coin']
+      ['Rent','<i class="bi bi-house-fill" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Transport','<i class="bi bi-bus-front" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Tour','<i class="bi bi-luggage" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Shopping','<i class="bi bi-bag-fill" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Grocery','<i class="bi bi-cart-check-fill" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Dining', '<i class="bi bi-cup" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Entertainment', '<i class="bi bi-emoji-laughing" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Health', '<i class="bi bi-heart" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Education', '<i class="bi bi-pencil" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Utilities', '<i class="bi bi-lightning" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Gifts', '<i class="bi bi-gift" style="font-size: 2rem; color: cornflowerblue;"></i>'],
+      ['Savings', '<i class="bi bi-coin" style="font-size: 2rem; color: cornflowerblue;"></i>']
     ]) %>
-  <%= f.submit "Add Group" %>
+  </div>
+  <br />
+  <div class="p-2 d-flex justify-content-between" style="background-color: #5fb523; position: fixed; bottom: 0; width: 100vw;">
+    <div>
+      <%= form.submit "Create Group", class: "btn btn-outline-light" %>
+    </div>
+    <div>
+      <%= link_to "Back to Groups", groups_path, class: "btn btn-outline-light" %>
+    </div>
+  </div>
 <% end %>
