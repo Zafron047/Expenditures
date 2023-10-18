@@ -5,12 +5,12 @@ class ExpensesController < ApplicationController
     puts params.inspect
     if params[:group_id]
       @group = Group.find(params[:group_id])
-      @updated_group_expenses = @group.expenses.where(author_id: current_user)
+      @updated_group_expenses = @group.expenses.where(author_id: current_user).order(created_at: :desc)
       @total_amount = @updated_group_expenses.sum(:amount)
       @expenses = @updated_group_expenses.to_a
     elsif params[:user_id]
       @user = User.find(params[:user_id])
-      @expenses = @user.expenses
+      @expenses = @user.expenses.order(:created_at)
     end
   end
 

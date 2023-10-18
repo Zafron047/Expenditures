@@ -1,16 +1,16 @@
-<h1> This is expenses index page </h1>
-
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-<div style="background-color: #E4ECF7">
-  <div class="d-flex flex-row-reverse bd-highlight" style="background-color: #3778C2">
-    <div class="p-3 bd-highlight" style="color: #9CB8DB">Most ancient</div>
-    <div class="p-3 bd-highlight" style="color: #C1D2E8">Most recent</div>
+<h1 class="m-2"> Expenditures List </h1>
+<div style="background-color: #e4ecf7">
+  <div class="d-flex flex-row-reverse bd-highlight" style="background-color: #3778c2;">
+    <div class="p-3 bd-highlight" style="color: #9cb8db">Most ancient</div>
+    <div class="p-3 bd-highlight" style="color: #c1d2e8">Most recent</div>
   </div>
+
   <div class="d-flex flex-row-reverse bd-highlight bg-white">
     <div class="p-2 bd-highlight">$00.00</div>
     <div class="p-2 bd-highlight">Gift credit</div>
   </div>
   <br/>
+  
   <div class="d-flex align-items-center">
     <% if @group.present? %>
         <div class="pb-2" style="margin-left: 0.5rem;">
@@ -21,44 +21,48 @@
         </div>
       <% end %>
   </div>
-  <div class="table-responsive">
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th class="col-4">Name</th>
-        <th class="col-4">Amount</th>
-        <th class="col-4">Created At</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @expenses.each do |expense| %>
-        <tr>
-          <td class="col-4"><%= expense.name %></td>
-          <td class="col-4"><%= number_to_currency(expense.amount) %></td>
-          <td class="col-4"><%= expense.created_at %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<% if @group.present? %>
-  <div class="row">
-    <div class="col-6">
-      <h6 style="margin-left: 0.5rem; font-weight: bold;">TOTAL AMOUNT:</h6>
-    </div>
-    <div class="col-6 text-end">
-      <p style="margin-right: 2rem; font-weight: bold;"><%= number_to_currency(@total_amount) %></p>
-    </div>
-  </div>
-<% end %>
 
-<% if @group.present? %>
-  <div class="p-2 d-flex justify-content-center" style="background-color:#5fb523">
-    <div style="margin-right: 2rem">
-      <%= link_to "Add a new transaction", new_group_expense_path(@group), class: "btn btn-outline-light" %>
-    </div>
-    <div>
-      <%= link_to "Back to Categories", groups_path, class: "btn btn-outline-dark" %>
-    </div>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th class="col-4">Name</th>
+          <th class="col-4">Amount</th>
+          <th class="col-4">Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @expenses.each do |expense| %>
+          <tr>
+            <td class="col-4"><%= expense.name %></td>
+            <td class="col-4"><%= number_to_currency(expense.amount) %></td>
+            <td class="col-4"><%= expense.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-<% end %>
+  </br>
+
+  <% if @group.present? %>
+    <div class="row">
+      <div class="col-6">
+        <h6 style="margin-left: 0.5rem; font-weight: bold;">TOTAL AMOUNT:</h6>
+      </div>
+      <div class="col-6 text-end">
+        <p style="margin-right: 2rem; font-weight: bold;"><%= number_to_currency(@total_amount) %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @group.present? %>
+    <div class="p-2 d-flex justify-content-between" style="background-color: #5fb523; position: fixed; bottom: 0; width: 100vw;">
+      <div style="margin-right: 2rem">
+        <%= link_to "Add expense", new_group_expense_path(@group), class: "btn btn-outline-light" %>
+      </div>
+      <div>
+        <%= link_to "Back to groups", groups_path, class: "btn btn-outline-light" %>
+      </div>
+    </div>
+  <% end %>
+</div>

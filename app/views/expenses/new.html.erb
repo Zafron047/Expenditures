@@ -1,11 +1,28 @@
-<h1> This is new Expense form page for <%= @group.name %></h1>
-
+<h1 class="m-2"> Add new expense </h1>
 <%= form_with(model: [ @group, @expense], local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :amount %>
-  <%= f.number_field :amount %>
-  <%= f.label :group, class: "control-label" %>
-  <%= f.collection_select :group, @groups, :name, :name, prompt: "Select a group", required: true %>
-  <%= f.submit %>
+  <div class="f-group p-2 m-2" >
+    <%= f.label :name, class: "control-label" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "expense name", style: "width: 300px; border: 1px solid #000;" %>
+  </div>
+
+  <div class="form-group p-2 m-2">
+    <%= f.label :amount, class: "control-label" %>
+    <%= f.number_field :amount, class: "form-control", placeholder: "amount", style: "width: 300px; border: 1px solid #000;" %>
+  </div>
+
+  <div class="form-group p-2 m-2" style="margin-top: 1rem;">
+    <%= f.label :group, class: "control-label" %>
+    <%= f.collection_select :group, @groups, :name, :name, prompt: "Select a group", class: "form-control", required: true %>
+  </div>
+  
+  <br />
+
+  <div class="p-2 d-flex justify-content-between" style="background-color: #5fb523; position: fixed; bottom: 0; width: 100vw;">
+    <div style="margin-right: 2rem">
+      <%= f.submit "Create expense", class: "btn btn-outline-light" %>
+    </div>
+    <div>
+      <%= link_to "Back to Expenses", group_expenses_path(group_id: params[:group_id]), class: "btn btn-outline-light" %>
+    </div>
+  </div>
 <% end %>
