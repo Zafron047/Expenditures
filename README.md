@@ -88,9 +88,9 @@ To run the testing, execute the following command:
 rspec spec --format documentation
 ```
 
-- [Live Demo Link](https://expenditure-2i8a.onrender.com/)
+- [Live Demo](https://expenditure-2i8a.onrender.com/)
 
-- [Project Walkthrough]()
+- [Project presentation](https://www.youtube.com/watch?v=Gjlb8E8ArTU)
 
 <!-- AUTHORS -->
 
