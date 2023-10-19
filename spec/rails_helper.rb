@@ -68,7 +68,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
-
 # Capybara.register_driver :chrome do |app|
 #   options = Selenium::WebDriver::Chrome::Options.new
 #   options.add_argument('--headless') # Run Chrome in headless mode

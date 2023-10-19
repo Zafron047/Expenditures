@@ -13,18 +13,18 @@
  *= require_tree .
  *= require_self
  */
- @import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css';
 
- * {
+* {
   font-family: proxima-nova, sans-serif;
   color: #919294;
 }
 
 body {
- margin: none;
- padding: none;
- box-sizing: border-box;
- background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
 }
 
 h1,
