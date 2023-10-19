@@ -30,8 +30,6 @@
 
 This Ruby on Rails project is about building a mobile web application where user can manage budget: user have a list of transactions associated with a group, so that user can see how much money they have spent and on what.
 
-![ERD Diagram](app\assets\images\erd_diagram.png)
-
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -92,7 +90,7 @@ rspec spec --format documentation
 
 - [Live Demo Link](https://expenditure-2i8a.onrender.com/)
 
-- [Project Walkthrough](https://www.loom.com/share/b1e71c22c2824d77b5b819f1399839b1?sid=30ed70b1-b35d-4e66-b03a-7819539e7bc8)
+- [Project Walkthrough]()
 
 <!-- AUTHORS -->
 
