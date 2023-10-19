@@ -97,9 +97,9 @@ rspec spec --format documentation
 ## 👥 Authors <a name="authors"></a>
 
 👤 MD. Nohain Islam
-- GitHub: [&nbsp; &nbsp; @githubhandle](https://github.com/Zafron047)
-- Twitter: [&nbsp; &nbsp; @twitterhandle](https://twitter.com/NohainZ)
-- LinkedIn: [&nbsp; LinkedIn](https://www.linkedin.com/in/nohain-islam/)
+- [Twitter](https://twitter.com/NohainZ) - NohainZ
+- [Github](https://github.com/Zafron047) - Zafron047
+- [LinkedIn](https://www.linkedin.com/in/nohain-islam/) - nohain-islam
 
 <!-- FUTURE FEATURES -->
 
