@@ -9,10 +9,11 @@ services:
     runtime: ruby
     buildCommand: "./bin/render-build.sh; bundle exec rails db:migrate"
     startCommand: "bundle exec puma -C config/puma.rb"
+    plan: free
     envVars:
       - key: DATABASE_URL
         fromDatabase:
           name: expenditure
           property: connectionString
-      - key: RAILS_MASTER_KEY
+      - key: 3690588fa21acada7bee22e9fd088138
         sync: false
