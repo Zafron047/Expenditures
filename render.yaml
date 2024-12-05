@@ -15,5 +15,5 @@ services:
         fromDatabase:
           name: expenditure
           property: connectionString
-      - key: 3690588fa21acada7bee22e9fd088138
+      - key: RAILS_MASTER_KEY
         sync: false
